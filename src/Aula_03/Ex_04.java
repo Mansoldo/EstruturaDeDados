@@ -1,45 +1,47 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Aula_03;
 
+// @author diego.amalmeida
+/*
+Escreva um algoritmo que recebe um vetor A de tamanho N contendo inteiros e encontra 
+o par de elementos distinto A e B do vetor que fazem com que a diferença
+A-B seja a maior possível. A função deve ter complexidade O(n), ou seja, o tamanho 
+do vetor V[];
+
+
+*/
 import java.util.Random;
 import java.util.Scanner;
 
-/**
- *
- * @author diego.amalmeida
- */
-public class Ex_03 {
+public class Ex_04 {
 
-    public static void trocaVetor(int[] vetor) {
+    public static int maiorDiferenca(int[] vetor) {
 
         int menor = 0, maior = 0, aux = 0;
-        
-        for(int i = 1; i < vetor.length; i++){
-            
-            if(vetor[i] > vetor[maior]){
+
+        for (int i = 1; i < vetor.length; i++) {
+
+            if (vetor[i] > vetor[maior]) {
                 maior = i;
             }
-            
-            if(vetor[i] < vetor[menor]){
+
+            if (vetor[i] < vetor[menor]) {
                 menor = i;
-            }            
+            }
         }
-        aux = vetor[maior];
-        vetor[maior] = vetor[menor];
-        vetor[menor] = aux;
+        int maior_elemento = vetor[maior];
+        int menor_elemento = vetor[menor];        
+        
+        return maior_elemento - menor_elemento;
     }
 
     public static void populaVetorAleatorio(int[] v) {
 
-        Random aleatorio = new Random();
-        //Scanner leitor = new Scanner(System.in);        
+        //Random aleatorio = new Random();
+        Scanner leitor = new Scanner(System.in);        
+        System.out.println("Popule o vetor: ");
         //System.out.println("Popule o vetor com números inteiros: ");        
         for (int i = 0; i < v.length; i++) {
-            v[i] = aleatorio.nextInt(30) + 1;
+            v[i] = leitor.nextInt();
         }
     }
 
@@ -65,13 +67,14 @@ public class Ex_03 {
     }
 
     public static void main(String[] args) {
-
+        
         int qtd = leValores();
         int[] vetor = new int[qtd];
         populaVetorAleatorio(vetor);
         imprimirVetor(vetor);
-        trocaVetor(vetor);
-        imprimirVetor(vetor);
+        int n = maiorDiferenca(vetor);        
+        
+        System.out.println("A maior diferença dos valores: " + n);
 
     }
 
