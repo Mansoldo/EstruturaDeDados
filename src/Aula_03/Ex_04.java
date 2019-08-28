@@ -6,18 +6,18 @@ Escreva um algoritmo que recebe um vetor A de tamanho N contendo inteiros e enco
 o par de elementos distinto A e B do vetor que fazem com que a diferença
 A-B seja a maior possível. A função deve ter complexidade O(n), ou seja, o tamanho 
 do vetor V[];
-
-
 */
 import java.util.Random;
 import java.util.Scanner;
 
 public class Ex_04 {
 
-    public static int maiorDiferenca(int[] vetor) {
+    public static int [] maiorDiferenca(int[] vetor) {
 
         int menor = 0, maior = 0, aux = 0;
 
+        int [] v = new int [2];
+        
         for (int i = 1; i < vetor.length; i++) {
 
             if (vetor[i] > vetor[maior]) {
@@ -28,10 +28,10 @@ public class Ex_04 {
                 menor = i;
             }
         }
-        int maior_elemento = vetor[maior];
-        int menor_elemento = vetor[menor];        
+        v[0] = vetor[maior];
+        v[1] = vetor[menor];        
         
-        return maior_elemento - menor_elemento;
+        return v;
     }
 
     public static void populaVetorAleatorio(int[] v) {
@@ -71,10 +71,9 @@ public class Ex_04 {
         int qtd = leValores();
         int[] vetor = new int[qtd];
         populaVetorAleatorio(vetor);
-        imprimirVetor(vetor);
-        int n = maiorDiferenca(vetor);        
-        
-        System.out.println("A maior diferença dos valores: " + n);
+        imprimirVetor(vetor);           
+        int [] vetorDiferenca = maiorDiferenca(vetor);
+        imprimirVetor(vetorDiferenca);        
 
     }
 
