@@ -30,18 +30,18 @@ public class ADO_1_A {
 
         for (int i = 0; i <= tamanho1; i++) {
             
-            if (v2[j] == v1[k]) {
+            if (v1[j] == v2[k]) {
                 
-                resultado[l] = v2[j];
+                resultado[l] = v1[j];
                 l++;
                 j++;
                 k++;
                 
-            } else if (v2[j] > v1[k]) {
+            } else if (v1[j] > v2[k]) {
                 
                 k++;
                 
-            } else if (v2[j] < v1[k]) {
+            } else if (v1[j] < v2[k]) {
                 
                 j++;
             }
@@ -85,13 +85,14 @@ public class ADO_1_A {
 
     public static void main(String[] args) {
 
-        int v1[] = {7, 2, 5, 8, 4};
+        int v1[] = {1, 2, 7, 8, 3};
         int v2[] = {4, 2, 9, 5};
 
         ordenaVetor(v1);
         imprimirVetor(v1);
         ordenaVetor(v2);
         imprimirVetor(v2);
+        
         int resultado [] = validarIguais(v1, v2);        
         imprimirVetor(resultado);
     }
