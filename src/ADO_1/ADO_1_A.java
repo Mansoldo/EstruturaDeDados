@@ -10,7 +10,7 @@ Exemplo:A= { 7, 2, 5, 8, 4} e B= {4, 2, 9, 5}, C= A ∩ B= {2, 5, 4}A= { 3, 9, 1
  */
 public class ADO_1_A {
 
-    public static int[] validarIguais(int v1[], int v2[]) {
+    public static int[] validarInterseccao(int v1[], int v2[]) {
         
         int tamanho1 = v1.length - 1;
         int tamanho2 = v2.length - 1;
@@ -93,7 +93,7 @@ public class ADO_1_A {
         ordenaVetor(v2);
         imprimirVetor(v2);
         
-        int resultado [] = validarIguais(v1, v2);        
+        int resultado [] = validarInterseccao(v1, v2);        
         imprimirVetor(resultado);
     }
 
