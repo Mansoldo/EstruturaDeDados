@@ -12,24 +12,26 @@ public class ADO_1_B {
 
     public static int[] validarUniao(int v1[], int v2[]) {
 
-        int tamanho1 = v1.length - 1;
-        int tamanho2 = v2.length - 1;
+        int tamanho1 = v1.length -1;
+        int tamanho2 = v2.length ;
         int tamanho3;
 
-        int aux = 0, j = 0;
+        int aux = 0, j = 0, k = 0;
 
         tamanho3 = tamanho1 + tamanho2;
 
         int resultado[] = new int[tamanho3];
 
-        for (int i = 0; i <= tamanho3; i++) {
+        for (int i = 0; i < tamanho3; i++) {
 
-            if (i < tamanho1) {
+            if (i <= tamanho1) {
                 resultado[i] = v1[aux];
                 aux++;
-            } else if (i > tamanho1 && resultado[i] != v2[j]) {
+            } else if (i >= tamanho1 && resultado[k] != v2[j]) {
                 resultado[aux] = v2[j];
+                aux++;
                 j++;
+                k++;
             }
         }
         return resultado;
@@ -71,7 +73,7 @@ public class ADO_1_B {
     public static void main(String[] args) {
 
         int v1[] = {1, 2, 3, 4, 5};
-        int v2[] = {5, 6, 7, 8, 9};
+        int v2[] = {5, 4, 3, 2, 6};
 
         ordenaVetor(v1);
         ordenaVetor(v2);
