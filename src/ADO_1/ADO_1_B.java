@@ -12,27 +12,46 @@ public class ADO_1_B {
 
     public static int[] validarUniao(int v1[], int v2[]) {
 
-        int tamanho1 = v1.length -1;
-        int tamanho2 = v2.length ;
+        int tamanho1 = v1.length;
+        int tamanho2 = v2.length;
         int tamanho3;
-
-        int aux = 0, j = 0, k = 0;
-
         tamanho3 = tamanho1 + tamanho2;
+        boolean validacao = false;
+
+        int aux = 0, aux2 = 0, j = 0, cont = 0;
 
         int resultado[] = new int[tamanho3];
 
-        for (int i = 0; i < tamanho3; i++) {
+        for (int i = 0; i < tamanho1; i++) {
 
-            if (i <= tamanho1) {
+            if (i < tamanho1) {
                 resultado[i] = v1[aux];
                 aux++;
-            } else if (i >= tamanho1 && resultado[k] != v2[j]) {
-                resultado[aux] = v2[j];
-                aux++;
-                j++;
-                k++;
             }
+        }
+
+        aux2 = aux;
+
+        while (j < tamanho2) {
+
+            for (int i = aux; aux < tamanho3; i++) {
+
+                if (v2[j] == resultado[cont]) {
+                    validacao = true;
+                }
+                cont++;
+                aux++;
+            }
+
+            if (validacao == false) {
+                
+                resultado[aux2] = v2[j];
+                aux2++;                
+            }
+            aux = v2.length;
+            j++;
+            cont = 0;
+            validacao = false;
         }
         return resultado;
     }
@@ -73,13 +92,13 @@ public class ADO_1_B {
     public static void main(String[] args) {
 
         int v1[] = {1, 2, 3, 4, 5};
-        int v2[] = {5, 4, 3, 2, 6};
-
+        int v2[] = {2, 4, 6, 2, 1};
+        
         ordenaVetor(v1);
         ordenaVetor(v2);
         imprimirVetor(v1);
         imprimirVetor(v2);
-        int[] resposta = validarUniao(v1,v2);
+        int[] resposta = validarUniao(v1, v2);
         imprimirVetor(resposta);
 
     }
