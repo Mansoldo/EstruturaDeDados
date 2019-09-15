@@ -92,7 +92,7 @@ public class ADO_1_B {
     public static void main(String[] args) {
 
         int v1[] = {1, 2, 3, 4, 5};
-        int v2[] = {2, 4, 6, 2, 1};
+        int v2[] = {2, 4, 6, 7, 1};
         
         ordenaVetor(v1);
         ordenaVetor(v2);
