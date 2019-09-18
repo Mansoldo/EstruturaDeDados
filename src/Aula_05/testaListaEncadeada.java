@@ -22,6 +22,14 @@ public class testaListaEncadeada {
         lista.insereOrdenado(5);
         lista.insereOrdenado(60);
         System.out.println(lista);
+        //lista.removerInicio();
+        //System.out.println(lista);
+        //lista.removerFinal();
+        //System.out.println(lista);
+        //lista.removerOrdenado(30);
+        //System.out.println(lista);
+        lista.removerFinalRecursivo();
+        System.out.println(lista);
 
     }
 
